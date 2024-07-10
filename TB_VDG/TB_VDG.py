@@ -3,7 +3,7 @@ import random
 import json
 import requests
 
-url = "http://(yourdomain)/api/v1/(yourtoken)/telemetry"
+url = "http://YOURDOMAIN/api/v1/YOURTOKEN/telemetry"
 
 loop = 0
 for loop in range (0,100) :
