@@ -43,6 +43,7 @@ for j in range (0,100) :
         print ("Request succesfull.")
     else :
         print ("Request failed.")
+        break
 
     check = send.status_code
     print ("Status Code:",check)
