@@ -5,17 +5,21 @@ import requests
 
 url = "http://YOURDOMAIN/api/v1/YOURTOKEN/telemetry"
 
+data = []
+
+for j in range (0,100) :
+    random_number = random.randint(190,300)
+
+    datas = {"v":random_number}
+    data.append(datas)
+
+with open('data.json','w') as j_files:
+    json.dump(data,j_files,indent=4)
+with open ("data.json","r") as j_files :
+    file = json.load(j_files)
+
 loop = 0
 for loop in range (0,100) :
-
-    random_number = random.randint(190,300)
-    print ("Number Generated:",random_number)
-
-    data = {"v":random_number}
-    with open('data.json', 'w') as dosya:
-        json.dump(data, dosya, indent=4)
-    with open ("data.json","r") as j_files :
-        file = json.load(j_files)
 
     send = requests.post(url,json=file)
 
