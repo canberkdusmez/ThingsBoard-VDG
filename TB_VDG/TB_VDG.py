@@ -8,12 +8,12 @@ url = "http://YOURDOMAIN/api/v1/YOURTOKEN/telemetry"
 
 data = []
 
-a=190
-b=300
-c=0
+min=190
+max=300
+count=0
 
 for j in range (0,100) :
-    random_number = random.randint(a,b)
+    random_number = random.randint(min,max)
     time_rn = dt.datetime.now()
     time_rn_j = time_rn.isoformat()
     datas = {
@@ -21,15 +21,15 @@ for j in range (0,100) :
         "RequestTime":time_rn_j,
         }
     data.append(datas)
-    c = random_number/10
-    a = random_number-c
-    b = random_number+c
-    a = round(a)
-    b = round(b)
-    if a < 190 :
-        a = 190
-    if b > 300 :
-        b = 300
+    count = random_number/10
+    min = random_number-count
+    max = random_number+count
+    min = round(min)
+    max = round(max)
+    if min < 190 :
+        min = 190
+    if max > 300 :
+        max = 300
 
     with open('data.json','w') as j_files:
         json.dump(data,j_files,indent=4)
